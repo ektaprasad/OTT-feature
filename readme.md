@@ -1,10 +1,9 @@
 Instructions for setting up and running your application and tests.
 
 Initial Setup
-1.Install MongoDB on your device, reference from 
-https://www.mongodb.com/docs/manual/installation/
+1.Install MongoDB on your device, reference from https://www.mongodb.com/docs/manual/installation/
 2. Use 18.18.2 version of node
-3. start mongo server as per instructions in above link.
+3. Start mongo server as per instructions in above link.
 4. Import the attached postman collection to run apis.
 
 To run the project
