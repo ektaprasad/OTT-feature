@@ -1,52 +1,37 @@
-import { Request, Response } from 'express';
-import MyListModel from '../models/MyList';
+import { Request, Response } from "express";
+import myListService from "../services/myListService";
 
-export const addToList = async (req: Request, res: Response) => {
+export const addToMyList = async (req: Request, res: Response) => {
   const { userId, itemId } = req.body;
+
   try {
-    const list = await MyListModel.findOne({ userId });
-    if (list) {
-      if (!list.items.includes(itemId)) {
-        list.items.push(itemId);
-        await list.save();
-      }
-    } else {
-      await MyListModel.create({ userId, items: [itemId] });
-    }
-    res.status(200).json({ message: 'Item added to list' });
+    await myListService.addToMyList(userId, itemId);
+    res.status(200).json({ message: "Item added to list" });
   } catch (error) {
-    res.status(500).json({ message: 'Internal server error' });
+    res.status(500).json({ error: "Error adding item to list" });
   }
 };
 
-export const removeFromList = async (req: Request, res: Response) => {
+export const removeFromMyList = async (req: Request, res: Response) => {
   const { userId, itemId } = req.body;
+
   try {
-    const list = await MyListModel.findOne({ userId });
-    if (list) {
-      list.items = list.items.filter(item => item !== itemId);
-      await list.save();
-      res.status(200).json({ message: 'Item removed from list' });
-    } else {
-      res.status(404).json({ message: 'List not found' });
-    }
+    await myListService.removeFromMyList(userId, itemId);
+    res.status(200).json({ message: "Item removed from list" });
   } catch (error) {
-    res.status(500).json({ message: 'Internal server error' });
+    res.status(500).json({ error: "Error removing item from list" });
   }
 };
 
-export const listItems = async (req: Request, res: Response) => {
-    const { userId } = req.params;
-    const { page = 1, limit = 10 } = req.query;
-    try {
-        const list = await MyListModel.findOne({ userId });
-        if (list) {
-            const paginatedItems = list.items.slice((Number(page) - 1) * Number(limit), Number(page) * Number(limit));
-            res.status(200).json({ items: paginatedItems });
-        } else {
-            res.status(404).json({ message: 'List not found' });
-        }
-    } catch (error) {
-        res.status(500).json({ message: 'Internal server error' });
-    }
+export const listMyItems = async (req: Request, res: Response) => {
+  const { userId } = req.params;
+  const page = parseInt(req.query.page as string, 10) || 1;
+  const limit = parseInt(req.query.limit as string, 10) || 10;
+
+  try {
+    const items = await myListService.listMyItems(userId, page, limit);
+    res.status(200).json({ data: items });
+  } catch (error) {
+    res.status(500).json({ error: "Error listing items" });
+  }
 };

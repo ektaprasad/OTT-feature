@@ -1,4 +1,3 @@
-// src/models/MyList.ts
 import { Schema, model, Document } from 'mongoose';
 
 interface MyList extends Document {

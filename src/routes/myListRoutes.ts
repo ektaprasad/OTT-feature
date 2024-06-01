@@ -1,10 +1,10 @@
 import express from "express";
-import { addToList, listItems, removeFromList } from "../controllers/listControls";
+import { addToMyList, listMyItems, removeFromMyList } from "../controllers/listControls";
 
 const router = express.Router();
 
-router.post("/add", addToList);
-router.post("/remove", removeFromList);
-router.get("/:userId", listItems);
+router.post("/add", addToMyList);
+router.post("/remove", removeFromMyList);
+router.get("/:userId", listMyItems);
 
 export default router;
