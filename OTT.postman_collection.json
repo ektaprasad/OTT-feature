@@ -1,0 +1,90 @@
+{
+	"info": {
+		"_postman_id": "1206fc15-4af1-4f59-acb6-381facae6082",
+		"name": "OTT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/mylist/user1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"mylist",
+						"user1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add to list",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": \"user1\",\n    \"itemId\": \"movie2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/mylist/remove",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"mylist",
+						"remove"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove from list",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": \"user1\",\n    \"itemId\": \"movie2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/mylist/remove",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"mylist",
+						"remove"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "ott",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "seed": "ts-node src/data.ts",
+    "start": "node src/server.ts",
+    "build": "tsc",
+    "dev": "ts-node src/server.ts",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint . --ext .ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ektaprasad/OTT-feature.git"
+  },
+  "author": "ekta prasad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ektaprasad/OTT-feature/issues"
+  },
+  "homepage": "https://github.com/ektaprasad/OTT-feature#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "mongoose": "^8.4.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.13.0",
+    "@types/supertest": "^6.0.2",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.1.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}
